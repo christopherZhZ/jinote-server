@@ -12,4 +12,11 @@ public interface Factory {
 
     Repo<Share> share();
 
+    default Share fill(Share s) {
+        if (s != null && s.getNote() == null) {
+            s.setNote(note().get(s.getNoteid()));
+        }
+        return s;
+    }
+
 }

@@ -9,7 +9,7 @@ public class Share extends Base {
     private String noteid;
     private String fromid;
     private String toid;
-    private String accesslevel;
+//    private String accesslevel;
     @Transient private Note note;
 
 }

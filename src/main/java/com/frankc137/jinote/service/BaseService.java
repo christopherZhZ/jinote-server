@@ -27,11 +27,19 @@ public abstract class BaseService {
     protected static class ResMap extends HashMap {
         private ResMap() {}
 
-        public static ResMap build(Object key, Object value) {
+        public static ResMap m(Object key, Object value) {
             ResMap resMap = new ResMap();
             resMap.put(key, value);
             return resMap;
         }
+    }
+
+    protected ResMap success() {
+        return ResMap.m("status", "success");
+    }
+
+    protected ResMap fail() {
+        return ResMap.m("status", "fail");
     }
 
 }
