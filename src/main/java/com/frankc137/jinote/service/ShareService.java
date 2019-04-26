@@ -5,6 +5,7 @@ import com.frankc137.jinote.dto.Share;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 public class ShareService extends BaseService {
 
@@ -36,6 +37,12 @@ public class ShareService extends BaseService {
         return shares.listBy(noteid);
     }
 
-//    @RequestMapping(value = "/del")
+    @RequestMapping(value = "/del")
+    public Map delShare(@RequestHeader String userid,
+                        @RequestParam String shareid) {
+        Share s = shares.del(shareid);
+        if (s == null) return fail();
+        return success();
+    }
 
 }
