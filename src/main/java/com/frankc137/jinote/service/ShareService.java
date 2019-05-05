@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Map;
 
+@RestController
+@RequestMapping(value = "/share")
 public class ShareService extends BaseService {
 
     @PostMapping(value = "/add")

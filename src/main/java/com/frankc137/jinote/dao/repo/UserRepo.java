@@ -7,10 +7,10 @@ import java.util.List;
 
 public interface UserRepo extends CrudRepo<User> {
 
-    List<User> findByUsername(String username);
+    List<User> findByName(String name);
 
-    default User findUserByUsername(String username) {
-        List<User> users = findByUsername(username);
+    default User findUserByName(String username) {
+        List<User> users = findByName(username);
         return users != null && users.size() > 0 ? users.get(0) : null;
     }
 
