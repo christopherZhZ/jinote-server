@@ -13,8 +13,8 @@ public class ShareService extends BaseService {
 
     @PostMapping(value = "/add")
     public Share addShare(@RequestHeader String userid,
-                    @RequestParam String toid,
-                    @RequestParam String noteid) {
+                          @RequestParam String toid,
+                          @RequestParam String noteid) {
         Share s = new Share();
         s.setFromid(userid);
         s.setToid(toid);

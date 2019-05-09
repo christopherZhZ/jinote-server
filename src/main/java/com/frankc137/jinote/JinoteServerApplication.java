@@ -7,7 +7,7 @@ import org.springframework.data.mongodb.config.EnableMongoAuditing;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-@EnableMongoRepositories("com.frankc137.jinote.dao.repo")
+@EnableMongoRepositories("com.frankc137.jinote.dao.mongo")
 @SpringBootApplication
 @EnableMongoAuditing
 public class JinoteServerApplication {

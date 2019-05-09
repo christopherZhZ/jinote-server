@@ -1,5 +1,6 @@
 package com.frankc137.jinote.service;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.frankc137.jinote.dto.Note;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,8 +14,9 @@ public class NoteService extends BaseService {
     @PostMapping(value = "/add")
     public Note addNote(@RequestHeader String userid,
                         @RequestBody Note note) {
-        note.setUserid(userid);
-        return notes.set(note);
+        Note n = Note.readNoteObject(note.toJsonString());
+        n.setUserid(userid);
+        return notes.set(n);
     }
 
     @GetMapping(value = "/get")
@@ -26,7 +28,8 @@ public class NoteService extends BaseService {
     @RequestMapping(value = "/set")
     public Note setNote(@RequestHeader String userid,
                         @RequestBody Note note) {
-        return notes.set(note);
+        Note n = Note.readNoteObject(note.toJsonString());
+        return notes.set(n);
     }
 
     @RequestMapping(value = "/list")

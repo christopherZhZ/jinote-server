@@ -2,6 +2,7 @@ package com.frankc137.jinote.service;
 
 import com.frankc137.jinote.dto.Note;
 import com.frankc137.jinote.dto.Notebook;
+import com.frankc137.jinote.security.exception.AppException;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -28,6 +29,18 @@ public class NotebookService extends BaseService {
     public Notebook setNotebook(@RequestHeader String userid,
                                 @RequestBody Notebook notebook) {
         return notebooks.set(notebook);
+    }
+
+    @RequestMapping(value = "/rename")
+    public Notebook renameNotebook(@RequestHeader String userid,
+                                   @RequestParam String notebookid,
+                                   @RequestParam String title) {
+        Notebook nb = notebooks.get(notebookid);
+        if (nb == null) {
+            throw new AppException("notebookid does not exist!");
+        }
+        nb.setTitle(title);
+        return notebooks.set(nb);
     }
 
     @RequestMapping(value = "/list")

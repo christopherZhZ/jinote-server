@@ -2,6 +2,7 @@ package com.frankc137.jinote.service;
 
 import com.frankc137.jinote.dao.Factory;
 import com.frankc137.jinote.dao.Repo;
+import com.frankc137.jinote.dao.UserRepo;
 import com.frankc137.jinote.dto.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -11,7 +12,7 @@ import java.util.HashMap;
 public abstract class BaseService {
 
     @Autowired protected Factory factory;
-    protected Repo<User> users;
+    protected UserRepo users;
     protected Repo<Notebook> notebooks;
     protected Repo<Note> notes;
     protected Repo<Share> shares;

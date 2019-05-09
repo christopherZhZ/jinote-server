@@ -4,7 +4,7 @@ import com.frankc137.jinote.dto.*;
 
 public interface Factory {
 
-    Repo<User> user();
+    UserRepo user();
 
     Repo<Notebook> notebook();
 

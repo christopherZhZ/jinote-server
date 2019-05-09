@@ -1,11 +1,11 @@
-package com.frankc137.jinote.dao.repo;
+package com.frankc137.jinote.dao.mongo;
 
 import com.frankc137.jinote.dao.CrudRepo;
 import com.frankc137.jinote.dto.Note;
 
 import java.util.List;
 
-public interface NoteRepo extends CrudRepo<Note> {
+public interface MongoNoteRepo extends CrudRepo<Note> {
 
     @Override
     default List<Note> list(String notebookid) {
