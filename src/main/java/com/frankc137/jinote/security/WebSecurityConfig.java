@@ -27,7 +27,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     private static final String[] AUTH_WHITELIST = {
             "/*/**", // .
-            "/user/register",
+            "/user/signup",
             "/user/login"
     };
 

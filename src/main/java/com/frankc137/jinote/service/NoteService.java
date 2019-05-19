@@ -1,6 +1,5 @@
 package com.frankc137.jinote.service;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.frankc137.jinote.dto.Note;
 import org.springframework.web.bind.annotation.*;
 
@@ -35,7 +34,12 @@ public class NoteService extends BaseService {
     @RequestMapping(value = "/list")
     public List<Note> listNote(@RequestHeader String userid,
                                @RequestParam String notebookid) {
-        return notes.list(notebookid);
+        return notes.listBy(notebookid);
+    }
+
+    @RequestMapping(value = "/listall")
+    public List<Note> listAllNote(@RequestHeader String userid) {
+        return notes.list(userid);
     }
 
     @RequestMapping(value = "/del")

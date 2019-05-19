@@ -8,9 +8,16 @@ import java.util.List;
 public interface MongoNoteRepo extends CrudRepo<Note> {
 
     @Override
-    default List<Note> list(String notebookid) {
+    default List<Note> list(String userid) {
+        return findByUserid(userid);
+    }
+
+    @Override
+    default List<Note> listBy(String notebookid) {
         return findByNotebookid(notebookid);
     }
 
     List<Note> findByNotebookid(String notebookid);
+
+    List<Note> findByUserid(String userid);
 }

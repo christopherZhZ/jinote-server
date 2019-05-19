@@ -60,7 +60,7 @@ public class UserService extends BaseService {
     }
 
     @RequestMapping(value = "/login")
-    public String login(String name, String password, HttpServletResponse response) {
+    public User login(String name, String password, HttpServletResponse response) {
         User user = users.findUserByName(name);
         if (user == null) {
             throw new SigninException("User does not exist!");
@@ -75,7 +75,7 @@ public class UserService extends BaseService {
                 .signWith(SignatureAlgorithm.HS256, C.JWT_SIGNING_KEY).compact();
         response.addHeader("Authorization", "Bearer "+token);
         response.addHeader("Access-Control-Expose-Headers", "Authorization");
-        return user.getId();
+        return user;
     }
 
 }
