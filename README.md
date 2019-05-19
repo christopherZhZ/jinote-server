@@ -1,2 +1,3 @@
 # jinote-server
-backend (rest api) of jinote project
+
+jinote-server is the backend (rest api) for **[jinote-react](https://github.com/christopherZhZ/jinote-react)** project.
